@@ -8,6 +8,10 @@ RUN go mod download
 
 # نسخ الكود وبناءه
 COPY . .
+
+ENV GOMEMLIMIT=100m
+ENV GOGC=20
+
 RUN CGO_ENABLED=0 GOOS=linux go build -p 1 -ldflags="-s -w" -o main .
 # Final image صغيرة
 FROM alpine:latest
