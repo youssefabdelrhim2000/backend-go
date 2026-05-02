@@ -8,8 +8,7 @@ RUN go mod download
 
 # نسخ الكود وبناءه
 COPY . .
-RUN CGO_ENABLED=0 GOOS=linux go build -o main .
-
+RUN CGO_ENABLED=0 GOOS=linux go build -p 1 -ldflags="-s -w" -o main .
 # Final image صغيرة
 FROM alpine:latest
 
