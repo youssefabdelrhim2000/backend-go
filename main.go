@@ -106,6 +106,7 @@ func main() {
         AllowOrigins:  []string{"https://porjets-2iaj.vercel.app"},
         AllowMethods:  []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
         AllowHeaders:  []string{"Origin", "Content-Type", "Accept", "Authorization"},
+		AllowCredentials: true,
         ExposeHeaders: []string{"Content-Disposition"},
     }))
 	app.Get("/files/:id/view", fileHandler.View)
